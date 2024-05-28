@@ -27,16 +27,16 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Text(
                     'Shoes\nCollection',
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 ),
-                Expanded(
+                const Expanded(
                   child: TextField(
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.search),
@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                     image: product['imageUrl'] as String,
                     backgroundColor: index.isEven
                         ? const Color.fromRGBO(216, 240, 253, 1)
-                        : const Color.fromRGBO(225, 225, 225, 1),
+                        : Color.fromARGB(255, 240, 236, 236),
                   );
                 },
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/global_variables.dart';
 import 'package:shopping_app/home_page.dart';
+import 'package:shopping_app/product_details_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,11 +24,14 @@ class MyApp extends StatelessWidget {
             prefixIconColor: Color.fromRGBO(119, 119, 119, 1),
           ),
           textTheme: const TextTheme(
-              titleMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              titleSmall:
-                  TextStyle(fontSize: 17, fontWeight: FontWeight.bold))),
+            titleMedium: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            titleSmall: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            titleLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          )),
       title: 'Shopping App',
-      home: HomePage(),
+      home: ProductDetailPage(
+        product: products[0],
+      ),
     );
   }
 }
