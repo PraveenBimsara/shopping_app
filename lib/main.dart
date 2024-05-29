@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/global_variables.dart';
+
 import 'package:shopping_app/home_page.dart';
-import 'package:shopping_app/product_details_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,9 +28,7 @@ class MyApp extends StatelessWidget {
             titleLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
           )),
       title: 'Shopping App',
-      home: ProductDetailPage(
-        product: products[0],
-      ),
+      home: HomePage(),
     );
   }
 }
