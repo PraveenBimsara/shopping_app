@@ -25,8 +25,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         'company': widget.product['company'],
         'size': selectedSize,
       });
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Product added successfully!')));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+        'Product added successfully!',
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+      )));
     } else {
       ScaffoldMessenger.of(context)
           .showSnackBar(const SnackBar(content: Text('Please select a size!')));

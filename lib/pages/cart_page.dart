@@ -38,7 +38,9 @@ class CartPage extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                         content: const Text(
-                            'Are you sure you want to remove the product from your cart?'),
+                          'Are you sure you want to remove the product from your cart?',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         actions: [
                           TextButton(
                             onPressed: () {
