@@ -107,7 +107,7 @@ class _ProductListState extends State<ProductList> {
                     image: product['imageUrl'] as String,
                     backgroundColor: index.isEven
                         ? const Color.fromRGBO(216, 240, 253, 1)
-                        : Color.fromARGB(255, 240, 236, 236),
+                        : const Color.fromARGB(255, 240, 236, 236),
                   ),
                 );
               },
