@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/global_variables.dart';
-import 'package:shopping_app/product_cart.dart';
-import 'package:shopping_app/product_details_page.dart';
+import 'package:shopping_app/widgets/product_cart.dart';
+import 'package:shopping_app/pages/product_details_page.dart';
 
 class ProductList extends StatefulWidget {
   const ProductList({super.key});
@@ -22,6 +22,7 @@ class _ProductListState extends State<ProductList> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SafeArea(
       child: Column(
         children: [
@@ -90,29 +91,57 @@ class _ProductListState extends State<ProductList> {
                 }),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: products.length,
-              itemBuilder: (context, index) {
-                final product = products[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return ProductDetailPage(product: product);
-                    }));
-                  },
-                  child: ProductCart(
-                    title: product['title'] as String,
-                    price: product['price'] as double,
-                    image: product['imageUrl'] as String,
-                    backgroundColor: index.isEven
-                        ? const Color.fromRGBO(216, 240, 253, 1)
-                        : const Color.fromARGB(255, 240, 236, 236),
+            child: size.width > 650
+                ? GridView.builder(
+                    itemCount: products.length,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 2,
+                    ),
+                    itemBuilder: (context, index) {
+                      final product = products[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return ProductDetailPage(product: product);
+                          }));
+                        },
+                        child: ProductCart(
+                          title: product['title'] as String,
+                          price: product['price'] as double,
+                          image: product['imageUrl'] as String,
+                          backgroundColor: index.isEven
+                              ? const Color.fromRGBO(216, 240, 253, 1)
+                              : const Color.fromARGB(255, 240, 236, 236),
+                        ),
+                      );
+                    },
+                  )
+                : ListView.builder(
+                    itemCount: products.length,
+                    itemBuilder: (context, index) {
+                      final product = products[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) {
+                            return ProductDetailPage(product: product);
+                          }));
+                        },
+                        child: ProductCart(
+                          title: product['title'] as String,
+                          price: product['price'] as double,
+                          image: product['imageUrl'] as String,
+                          backgroundColor: index.isEven
+                              ? const Color.fromRGBO(216, 240, 253, 1)
+                              : const Color.fromARGB(255, 240, 236, 236),
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
-          )
+          ),
         ],
       ),
     );

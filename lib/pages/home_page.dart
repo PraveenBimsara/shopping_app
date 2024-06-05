@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shopping_app/cart_page.dart';
+import 'package:shopping_app/pages/cart_page.dart';
 import 'package:shopping_app/global_variables.dart';
-import 'package:shopping_app/product_cart.dart';
-import 'package:shopping_app/product_details_page.dart';
-import 'package:shopping_app/product_list.dart';
+import 'package:shopping_app/widgets/product_cart.dart';
+import 'package:shopping_app/pages/product_details_page.dart';
+import 'package:shopping_app/widgets/product_list.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
